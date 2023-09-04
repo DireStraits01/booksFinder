@@ -1,0 +1,19 @@
+.searchBar-container {
+  position: relative;
+  width: 400px;
+}
+
+.searchBar-input {
+  width: 100%;
+  padding-right: 25px; /* Make space for the magnifier icon */
+  box-sizing: border-box; /* This ensures padding doesn't increase input's total width */
+  height: 30px;
+}
+
+.searchBar-icon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Make sure the icon doesn't interfere with input click events */
+}
