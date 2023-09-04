@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+.app-H1 {
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 50px;
+}
