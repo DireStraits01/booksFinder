@@ -13,4 +13,15 @@
   color: #fff;
   letter-spacing: 2px;
   font-size: 60px;
+  cursor: pointer;
+}
+
+.app-H1:hover {
+  color: #f9004d;
+}
+.sort-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2%;
 }

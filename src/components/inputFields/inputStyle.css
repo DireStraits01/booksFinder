@@ -15,5 +15,22 @@
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none; /* Make sure the icon doesn't interfere with input click events */
+  /* pointer-events: none;  */
+  cursor: pointer;
+}
+.select-categories,
+.select-sorting {
+  min-width: 100px;
+  height: 20px;
+}
+.label-categories,
+.label-sorting {
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.label-categories:hover,
+.label-sorting:hover {
+  color: #f9004d;
 }
