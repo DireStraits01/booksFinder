@@ -7,14 +7,15 @@ function App() {
   return (
     <div className="App">
       <div className="search-fields-container">
-        <h1 className="app-H1">Search for books</h1>
-        <from analyticsion="#">
-          <SearchBar />
-          <div className="sort-category">
-            <Categories />
-            <Sorting />
-          </div>
-        </from>
+        <h1 onClick={() => window.location.reload(false)} className="app-H1">
+          Search for books
+        </h1>
+
+        <SearchBar />
+        <div className="sort-category">
+          <Categories />
+          <Sorting />
+        </div>
 
         <BookList />
       </div>

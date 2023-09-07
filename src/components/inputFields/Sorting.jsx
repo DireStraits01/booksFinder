@@ -1,6 +1,7 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import BookStore from '../../store/BookStore';
 function Sorting() {
+  const [sortBy, setSortBy] = useState('relevance');
   return (
     <>
       <label className="label-sorting" htmlFor="sorting">

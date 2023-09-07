@@ -5,11 +5,15 @@ class BookStore {
   books = [];
   error = null;
   loading = false;
+  category = 'All';
 
   constructor() {
     makeAutoObservable(this);
   }
 
+  selectedCategory(category) {
+    this.category = category;
+  }
   fetchBooks(query) {
     this.loading = true;
     fetch(

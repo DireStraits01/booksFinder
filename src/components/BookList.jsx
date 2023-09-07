@@ -13,15 +13,23 @@ const BookList = observer(() => {
   }
 
   return (
-    <div>
-      {BookStore.books &&
-        BookStore.books.map((book) => (
-          <div key={book.id}>
-            <h3>{book.volumeInfo.title}</h3>
-            {/* Add more book details if needed */}
-          </div>
-        ))}
-    </div>
+    <>
+      {BookStore.books.map((book) => {
+        const category = book.volumeInfo.categories || [];
+        if (
+          BookStore.category === 'All' ||
+          category.includes(BookStore.category)
+        ) {
+          return (
+            <div key={book.id}>
+              <h3>{book.volumeInfo.title}</h3>
+              <p>{book.volumeInfo.categories}</p>
+            </div>
+          );
+        }
+        return null; // Return null if the condition does not meet
+      })}
+    </>
   );
 });
 

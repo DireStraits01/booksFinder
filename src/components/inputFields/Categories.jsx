@@ -1,21 +1,32 @@
-import React from 'react';
-
+import { useState } from 'react';
+import BookStore from '../../store/BookStore';
 function Categories() {
+  const [filterCategory, setFilterCategory] = useState('all');
+  BookStore.selectedCategory(filterCategory);
   return (
-    <div>
+    <>
       <label className="label-categories" htmlFor="categories">
         Categories: &nbsp;
       </label>
-      <select className="select-categories" id="categorie">
-        <option value="">all</option>
-        <option value="">art</option>
-        <option value="">biography</option>
-        <option value="">computers</option>
-        <option value="">history</option>
-        <option value="">medical</option>
-        <option value="">poetry</option>
+      <select
+        className="select-categories"
+        id="categorie"
+        onChange={(event) => {
+          setFilterCategory(event.target.value);
+          console.log('event:' + event.target.value);
+        }}
+        value={filterCategory}
+      >
+        <option value="All">All</option>
+        <option value="Art">Art</option>
+        <option value="Biography">Biography</option>
+        <option value="Computers">Computers</option>
+        <option value="History">History</option>
+        <option value="Medical">Medical</option>
+        <option value="Poetry">Poetry</option>
       </select>
-    </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </>
   );
 }
 
