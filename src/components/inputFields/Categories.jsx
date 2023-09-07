@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BookStore from '../../store/BookStore';
 function Categories() {
-  const [filterCategory, setFilterCategory] = useState('all');
-  BookStore.selectedCategory(filterCategory);
+  const [filterCategory, setFilterCategory] = useState('All');
+  useEffect(() => {
+    BookStore.selectedCategory(filterCategory);
+  }, [filterCategory]);
+
   return (
     <>
       <label className="label-categories" htmlFor="categories">
@@ -13,7 +16,6 @@ function Categories() {
         id="categorie"
         onChange={(event) => {
           setFilterCategory(event.target.value);
-          console.log('event:' + event.target.value);
         }}
         value={filterCategory}
       >

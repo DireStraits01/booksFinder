@@ -17,8 +17,7 @@ function SearchBar() {
           }}
           onKeyDown={(event) => {
             if (event.key === 'Enter') {
-              BookStore.fetchBooks(bookRequest, '');
-              console.log(BookStore.fetchBooks(bookRequest));
+              BookStore.fetchBooks(bookRequest);
             }
           }}
         />
