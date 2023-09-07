@@ -7,6 +7,7 @@ class BookStore {
   loading = false;
   category = 'All';
   sortOrderBy = 'relevance';
+  lastSearchQuery = '';
   constructor() {
     makeAutoObservable(this);
   }
@@ -33,6 +34,7 @@ class BookStore {
         this.error = error;
         this.loading = false;
       });
+    this.lastSearchQuery = query;
   }
 
   setSortOrderBy(value) {

@@ -5,7 +5,9 @@ function Sorting() {
 
   useEffect(() => {
     BookStore.setSortOrderBy(sortBy);
-    BookStore.fetchBooks();
+    if (BookStore.lastSearchQuery) {
+      BookStore.fetchBooks(BookStore.lastSearchQuery);
+    }
   }, [sortBy]);
 
   console.log(BookStore.sortOrderBy);
