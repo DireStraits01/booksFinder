@@ -13,7 +13,7 @@ function Categories() {
       </label>
       <select
         className="select-categories"
-        id="categorie"
+        id="categories"
         onChange={(event) => {
           setFilterCategory(event.target.value);
         }}

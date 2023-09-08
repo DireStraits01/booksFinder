@@ -30,8 +30,8 @@ const BookList = observer(() => {
       <div className="book-list-container">
         <p>found {filteredBooks.length} books</p>
         <div className="book-list">
-          {filteredBooks.map((book) => (
-            <BookCard key={book.id} book={book} />
+          {filteredBooks.map((book, index) => (
+            <BookCard key={index} book={book} />
           ))}
         </div>
         <button

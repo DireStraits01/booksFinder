@@ -1,5 +1,5 @@
 // stores/BookStore.js
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { GOOGLE_API } from './env';
 class BookStore {
   page = 0;
@@ -17,11 +17,18 @@ class BookStore {
     this.category = category;
   }
   fetchBooks(query, sortOrderBy = this.sortOrderBy) {
-    this.loading = true;
+    runInAction(() => {
+      this.loading = true;
+      this.error = null;
+    });
     if (!query || !query.trim()) {
       this.books = [];
       this.loading = false;
       return;
+    }
+    if (this.lastSearchQuery !== query) {
+      this.page = 0;
+      this.books = [];
     }
     const startIndex = this.page * 30;
     fetch(
@@ -29,18 +36,22 @@ class BookStore {
     )
       .then((response) => response.json())
       .then((data) => {
-        this.books = [...this.books, ...data.items];
-        this.loading = false;
+        runInAction(() => {
+          this.books = [...this.books, ...(data.items || [])];
+          this.loading = false;
+        });
       })
       .catch((error) => {
-        this.error = error;
-        this.loading = false;
+        runInAction(() => {
+          this.error = error;
+          this.loading = false;
+          this.lastSearchQuery = query;
+        });
       });
-    this.lastSearchQuery = query;
   }
   loadMoreBooks() {
-    this.page += 1; // увеличиваем страницу пагинации на 1
-    this.fetchBooks(this.lastSearchQuery); // повторно вызываем fetchBooks с последним запросом
+    this.page += 1;
+    this.fetchBooks(this.lastSearchQuery);
   }
   setSortOrderBy(value) {
     this.sortOrderBy = value;

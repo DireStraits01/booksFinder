@@ -13,9 +13,7 @@ function BookCard({ book }) {
       <img src={volumeInfo.imageLinks?.thumbnail} alt={volumeInfo.title} />
 
       <div className="book_info">
-        <h5 className="title" maxlength="15">
-          {volumeInfo.title}
-        </h5>
+        <h5 className="title">{volumeInfo.title}</h5>
         <p className="authors">{authors}</p>
       </div>
     </div>

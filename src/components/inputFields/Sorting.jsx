@@ -6,6 +6,7 @@ function Sorting() {
   useEffect(() => {
     BookStore.setSortOrderBy(sortBy);
     if (BookStore.lastSearchQuery) {
+      BookStore.page = 0; // сброс пагинации
       BookStore.fetchBooks(BookStore.lastSearchQuery);
     }
   }, [sortBy]);
@@ -17,8 +18,8 @@ function Sorting() {
         Sorting by:&nbsp;
       </label>
       <select
-        className="select-sorting"
         id="sorting"
+        className="select-sorting"
         onChange={(event) => {
           setSortBy(event.target.value);
         }}

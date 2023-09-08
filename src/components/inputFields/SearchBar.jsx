@@ -9,6 +9,7 @@ function SearchBar() {
       <div className="searchBar-container">
         <input
           type="text"
+          name="searchInput"
           className="searchBar-input"
           placeholder="Search..."
           value={bookRequest}
@@ -24,7 +25,9 @@ function SearchBar() {
         <input
           type="submit"
           name="submit"
-          onClick={() => BookStore.fetchBooks(bookRequest)}
+          onClick={() => {
+            BookStore.fetchBooks(bookRequest);
+          }}
         />
       </div>
     </>
