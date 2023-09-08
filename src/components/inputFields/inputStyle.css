@@ -2,35 +2,65 @@
   position: relative;
   width: 400px;
 }
-
-.searchBar-input {
+.searchBar-container {
+  width: 380px;
+  max-width: 100%;
+  position: relative;
+}
+.searchBar-container input:first-child {
+  display: inline-block;
   width: 100%;
-  padding-right: 25px; /* Make space for the magnifier icon */
-  box-sizing: border-box; /* This ensures padding doesn't increase input's total width */
-  height: 30px;
+  padding: 14px 130px 14px 15px;
+  border: 2px solid #f9004d;
+  outline: none;
+  border-radius: 30px;
+}
+.searchBar-container input:last-child {
+  position: absolute;
+  display: inline-block;
+  padding: 10px 30px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  background-color: #f9004d;
+  box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+  top: 6px;
+  right: 6px;
+  transition: transform 0.4s;
+  cursor: pointer;
+  color: white;
+}
+.searchBar-container form input:last-child:active {
+  transform: scale(1.1);
+  transition: 0.4s;
 }
 
-.searchBar-icon {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  /* pointer-events: none;  */
-  cursor: pointer;
-}
 .select-categories,
 .select-sorting {
   min-width: 100px;
-  height: 20px;
+  padding-left: 5px;
+  outline: none;
+  border-radius: 30px;
+}
+.select-categories:hover,
+.select-sorting:hover {
+  border: 1px solid #f9004d;
 }
 .label-categories,
 .label-sorting {
-  color: #fff;
+  color: white;
   font-weight: 700;
   cursor: pointer;
+  font-size: 15px;
+  transition: 0.4s;
 }
 
 .label-categories:hover,
 .label-sorting:hover {
   color: #f9004d;
+  transition: 0.4s;
 }
+/* input[type='text'],
+select {
+  background-color: white;
+} */

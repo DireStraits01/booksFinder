@@ -5,6 +5,6 @@
 }
 
 body {
-  background-image: url('/src/store/images/gray-background.jpg');
-  background-size: cover;
+  background-color: rgb(0, 0, 0);
+  /* min-height: 80vh; */
 }

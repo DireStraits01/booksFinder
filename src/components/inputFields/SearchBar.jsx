@@ -21,13 +21,11 @@ function SearchBar() {
             }
           }}
         />
-
-        <span
-          className="searchBar-icon"
+        <input
+          type="submit"
+          name="submit"
           onClick={() => BookStore.fetchBooks(bookRequest)}
-        >
-          🔍
-        </span>
+        />
       </div>
     </>
   );

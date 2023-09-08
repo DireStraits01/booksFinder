@@ -1,7 +1,9 @@
 // components/BookList.js
 import { observer } from 'mobx-react-lite';
 import BookStore from '../store/BookStore';
-
+import BookCard from './BookCard';
+import { CgMoreO } from 'react-icons/cg';
+import './List.css';
 const BookList = observer(() => {
   if (BookStore.loading) {
     return <div>Loading...</div>;
@@ -25,12 +27,23 @@ const BookList = observer(() => {
 
   return (
     <>
-      {filteredBooks.map((book) => (
-        <div key={book.id}>
-          <h3>{book.volumeInfo.title}</h3>
-          <p>{book.volumeInfo.categories}</p>
+      <div className="book-list-container">
+        <p>found {filteredBooks.length} books</p>
+        <div className="book-list">
+          {filteredBooks.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
         </div>
-      ))}
+        <button
+          className="load-more-btn"
+          type="button"
+          onClick={() => {
+            BookStore.loadMoreBooks();
+          }}
+        >
+          <CgMoreO />
+        </button>
+      </div>
     </>
   );
 });
