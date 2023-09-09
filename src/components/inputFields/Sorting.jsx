@@ -6,12 +6,17 @@ function Sorting() {
   useEffect(() => {
     BookStore.setSortOrderBy(sortBy);
     if (BookStore.lastSearchQuery) {
-      BookStore.page = 0; // сброс пагинации
+      BookStore.page = 0;
       BookStore.fetchBooks(BookStore.lastSearchQuery);
     }
+    console.log(
+      'last query: ' +
+        BookStore.lastSearchQuery +
+        ', sort: ' +
+        BookStore.sortOrderBy
+    );
   }, [sortBy]);
 
-  console.log(BookStore.sortOrderBy);
   return (
     <>
       <label className="label-sorting" htmlFor="sorting">

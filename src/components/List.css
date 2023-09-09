@@ -31,3 +31,7 @@
   background-color: #f9004d;
   transition: 0.8s;
 }
+.empty-string,
+.books-counter {
+  color: white;
+}

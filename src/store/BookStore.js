@@ -31,13 +31,17 @@ class BookStore {
       this.books = [];
     }
     const startIndex = this.page * 30;
+
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${query}&orderBy=${sortOrderBy}&key=${GOOGLE_API}&startIndex=${startIndex}&maxResults=30`
     )
       .then((response) => response.json())
       .then((data) => {
         runInAction(() => {
-          this.books = [...this.books, ...(data.items || [])];
+          //this.books = [...this.books, ...(data.items || [])];
+          this.books = data.items || [];
+          this.lastSearchQuery = query;
+          this.lastSearchQuery = query;
           this.loading = false;
         });
       })
@@ -45,7 +49,6 @@ class BookStore {
         runInAction(() => {
           this.error = error;
           this.loading = false;
-          this.lastSearchQuery = query;
         });
       });
   }

@@ -42,9 +42,9 @@
   font-size: 14px;
   letter-spacing: 1px;
   min-height: 40px;
-  white-space: nowrap;
+  /* white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
   width: 200px;
 }
 .title {
@@ -59,8 +59,7 @@
 .authors {
   color: #cac8c9;
   font-size: 14px;
-  white-space: nowrap;
-  overflow: hidden;
+
   text-overflow: ellipsis;
   width: 200px;
 }

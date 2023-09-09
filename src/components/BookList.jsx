@@ -22,13 +22,15 @@ const BookList = observer(() => {
   });
 
   if (filteredBooks.length === 0) {
-    return <div>No books found for selected category.</div>;
+    return (
+      <div className="empty-string">No books found for selected category.</div>
+    );
   }
 
   return (
     <>
       <div className="book-list-container">
-        <p>found {filteredBooks.length} books</p>
+        <p className="books-counter">found {filteredBooks.length} books</p>
         <div className="book-list">
           {filteredBooks.map((book, index) => (
             <BookCard key={index} book={book} />
