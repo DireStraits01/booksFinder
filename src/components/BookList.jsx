@@ -1,11 +1,14 @@
 // components/BookList.js
+import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import BookStore from '../store/BookStore';
 import BookCard from './BookCard';
-import { CgMoreO } from 'react-icons/cg';
+import { TfiMoreAlt } from 'react-icons/tfi';
 import './List.css';
-
+import CardModal from './layout/CardModal';
+import { Button } from 'react-bootstrap';
 const BookList = observer(() => {
+  const [modalShow, setModalShow] = useState(false);
   if (BookStore.loading) {
     return <div>Loading...</div>;
   }
@@ -45,8 +48,18 @@ const BookList = observer(() => {
             BookStore.loadMoreBooks();
           }}
         >
-          <CgMoreO />
+          <TfiMoreAlt />
         </button>
+
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+          Launch vertically centered modal
+        </Button>
+
+        <CardModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          style={{ backgroundColor: 'white' }}
+        />
       </div>
     </>
   );

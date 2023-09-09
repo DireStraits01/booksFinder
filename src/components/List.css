@@ -12,7 +12,7 @@
 
 .load-more-btn {
   margin: 50px;
-  font-size: 50px;
+  font-size: 25px;
   cursor: pointer;
   height: 50px;
   width: 50px;
@@ -20,6 +20,7 @@
   background-color: transparent;
   color: #ffffffce;
   transition: 1.4s;
+  line-height: 25px;
 }
 .load-more-btn:hover {
   background-color: #f9004d;

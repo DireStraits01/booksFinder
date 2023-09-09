@@ -1,13 +1,13 @@
 import './App.css';
-import SearchBar from './components/inputFields/SearchBar';
-import Categories from './components/inputFields/Categories';
-import Sorting from './components/inputFields/Sorting';
+import SearchBar from './components/layout/SearchBar';
+import Categories from './components/layout/Categories';
+import Sorting from './components/layout/Sorting';
 import BookList from './components/BookList';
 function App() {
   return (
     <div className="App">
       <div className="search-fields-container">
-        <div className="navbar">
+        <div className="search-navbar">
           <h1 onClick={() => window.location.reload(false)} className="app-H1">
             Search for <span className="title-piece-books">books</span>
           </h1>
