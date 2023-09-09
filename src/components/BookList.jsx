@@ -4,6 +4,7 @@ import BookStore from '../store/BookStore';
 import BookCard from './BookCard';
 import { CgMoreO } from 'react-icons/cg';
 import './List.css';
+
 const BookList = observer(() => {
   if (BookStore.loading) {
     return <div>Loading...</div>;
@@ -39,7 +40,8 @@ const BookList = observer(() => {
         <button
           className="load-more-btn"
           type="button"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             BookStore.loadMoreBooks();
           }}
         >

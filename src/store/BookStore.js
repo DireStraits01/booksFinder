@@ -12,7 +12,10 @@ class BookStore {
   constructor() {
     makeAutoObservable(this);
   }
-
+  clearQuery() {
+    this.page = 0;
+    this.books = [];
+  }
   selectedCategory(category) {
     this.category = category;
   }
@@ -38,10 +41,13 @@ class BookStore {
       .then((response) => response.json())
       .then((data) => {
         runInAction(() => {
-          //this.books = [...this.books, ...(data.items || [])];
-          this.books = data.items || [];
-          this.lastSearchQuery = query;
-          this.lastSearchQuery = query;
+          if (this.lastSearchQuery === query) {
+            this.books = [...this.books, ...(data.items || [])];
+          } else {
+            this.books = data.items || [];
+            this.lastSearchQuery = query;
+          }
+
           this.loading = false;
         });
       })

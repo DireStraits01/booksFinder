@@ -27,6 +27,7 @@ function SearchBar() {
           name="submit"
           onClick={() => {
             BookStore.fetchBooks(bookRequest);
+            BookStore.clearQuery();
           }}
         />
       </div>

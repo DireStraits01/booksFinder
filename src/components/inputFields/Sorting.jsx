@@ -27,6 +27,7 @@ function Sorting() {
         className="select-sorting"
         onChange={(event) => {
           setSortBy(event.target.value);
+          BookStore.clearQuery();
         }}
         value={sortBy}
       >
