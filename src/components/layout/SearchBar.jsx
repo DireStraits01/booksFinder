@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './inputStyle.css';
+import './LayoutStyle.css';
 import BookStore from '../../store/BookStore';
 function SearchBar() {
   const [bookRequest, setBookRequest] = useState('');

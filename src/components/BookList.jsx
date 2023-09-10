@@ -5,10 +5,17 @@ import BookStore from '../store/BookStore';
 import BookCard from './BookCard';
 import { TfiMoreAlt } from 'react-icons/tfi';
 import './List.css';
-import CardModal from './layout/CardModal';
-import { Button } from 'react-bootstrap';
+import CardModal from './ModalWindow/CardModal';
+
 const BookList = observer(() => {
   const [modalShow, setModalShow] = useState(false);
+  const [selectedBook, setSlectedBook] = useState(null);
+
+  const handleSelectedBook = (book) => {
+    setSlectedBook(book);
+    setModalShow(true);
+    console.log(book.volumeInfo);
+  };
   if (BookStore.loading) {
     return <div>Loading...</div>;
   }
@@ -37,9 +44,20 @@ const BookList = observer(() => {
         <p className="books-counter">found {filteredBooks.length} books</p>
         <div className="book-list">
           {filteredBooks.map((book, index) => (
-            <BookCard key={index} book={book} />
+            <div
+              onClick={() => handleSelectedBook(book)}
+              className="book-card"
+              key={index}
+            >
+              <BookCard book={book} />
+            </div>
           ))}
         </div>
+        <CardModal
+          book={selectedBook}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
         <button
           className="load-more-btn"
           type="button"
@@ -50,16 +68,6 @@ const BookList = observer(() => {
         >
           <TfiMoreAlt />
         </button>
-
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch vertically centered modal
-        </Button>
-
-        <CardModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          style={{ backgroundColor: 'white' }}
-        />
       </div>
     </>
   );
