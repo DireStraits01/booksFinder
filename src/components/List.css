@@ -36,3 +36,5 @@
 .books-counter {
   color: white;
 }
+@media (max-width: 466px) {
+}
