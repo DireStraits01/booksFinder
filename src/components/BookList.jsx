@@ -1,4 +1,5 @@
 // components/BookList.js
+import { BeatLoader } from 'react-spinners';
 import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import BookStore from '../store/BookStore';
@@ -17,7 +18,18 @@ const BookList = observer(() => {
     console.log(book.volumeInfo);
   };
   if (BookStore.loading) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background: 'white',
+        }}
+      >
+        <BeatLoader />
+      </div>
+    );
   }
 
   if (BookStore.error) {
