@@ -17,8 +17,9 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: transparent;
-  color: #ffffffce;
+  border: none;
+  background-color: #777777ce;
+  color: #ffffff;
   transition: 1.4s;
   line-height: 25px;
 }
